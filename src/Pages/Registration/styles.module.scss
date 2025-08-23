@@ -1,0 +1,349 @@
+$boxshadowColor: #cfcece;
+
+input {
+  width: 404px;
+  height: 44px;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #aeaeae;
+  padding-left: 10px;
+  font-size: 19px;
+  color: #a3a1a1;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-family: "Lato";
+  font-weight: 350;
+
+  &::placeholder {
+    transform: translate(2px);
+    color: #a3a1a1;
+  }
+}
+
+.RegisterWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 550px;
+  user-select: none;
+
+  h1 {
+    font-size: 43px;
+    transform: translateY(-50px);
+  }
+
+  .EmailInputWrapper {
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    transform: translate(-50%);
+
+    h2 {
+      position: absolute;
+      margin-top: -12px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
+  .PasswordInputWrapper {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    transform: translate(-50%);
+
+    h2 {
+      position: absolute;
+      margin-top: -12px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
+  .AgreeToPolicy {
+    position: absolute;
+    top: 50%;
+    left: 26%;
+
+    input {
+      width: 20px;
+      height: 30px;
+    }
+
+    span {
+      position: absolute;
+      margin-left: 15px;
+      white-space: nowrap;
+      margin-top: 25px;
+
+      a {
+        color: #111;
+      }
+    }
+  }
+
+  .Signup {
+    position: absolute;
+    width: 424px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #197bbd;
+    margin-top: 250px;
+    left: 51%;
+    transform: translate(-50%);
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 43px;
+    transition: 0.5s;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.OrWrapper {
+  position: absolute;
+  top: 82%;
+  left: 51.5%;
+  transform: translate(-50%);
+
+  .LineLeft {
+    position: absolute;
+    width: 200px;
+    height: 1px;
+    background-color: #cdc9c9;
+    margin-left: -210px;
+    margin-top: 26px;
+  }
+
+  .LineRight {
+    position: absolute;
+    width: 200px;
+    height: 1px;
+    background-color: #cdc9c9;
+    margin-left: 23px;
+    margin-top: -27px;
+  }
+}
+
+.HaveAccount {
+  position: absolute;
+  left: 51%;
+  transform: translate(-50%);
+  bottom: 2px;
+  font-weight: 600;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.LoginWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 550px;
+  user-select: none;
+
+  h1 {
+    font-size: 43px;
+    transform: translateY(-50px);
+  }
+
+  h2 {
+    transform: translateY(-80px);
+    font-size: 20px;
+    margin-left: 7px;
+  }
+
+  .EmailInputWrapper {
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    transform: translate(-50%);
+
+    h2 {
+      position: absolute;
+      margin-top: 60px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
+  .PasswordInputWrapper {
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    transform: translate(-50%);
+
+    h2 {
+      position: absolute;
+      margin-top: 60px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      margin-left: 300px;
+      font-weight: 500;
+    }
+  }
+
+  .RememberMe {
+    position: absolute;
+    left: 25.5%;
+    top: 56%;
+
+    input {
+      width: 20px;
+      height: 30px;
+    }
+
+    span {
+      position: absolute;
+      margin-left: 15px;
+      white-space: nowrap;
+      margin-top: 25px;
+    }
+  }
+
+  .Login {
+    position: absolute;
+    width: 424px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #197bbd;
+    margin-top: 210px;
+    left: 51%;
+    transform: translate(-50%);
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 43px;
+    transition: 0.5s;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.VerifyPageWrapper {
+  position: absolute;
+  width: 600px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px $boxshadowColor;
+  border-radius: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+
+  .ConfirmButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 45px;
+    background-color: #197bbd;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    user-select: none;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .Instruction {
+    margin-top: 200px;
+
+    p {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      width: 550px;
+      text-align: center;
+    }
+  }
+
+  .VerificationEmailAgain {
+    position: absolute;
+    color: #551a8b;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.SetNameWrapper {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    position: absolute;
+    transform: translate(-90px);
+    margin-top: 160px;
+    font-size: 40px;
+  }
+
+  h2 {
+    position: absolute;
+    margin-top: -20px;
+  }
+
+  input {
+    margin-bottom: 70px;
+  }
+
+  .EmailInputWrapper {
+    margin-top: 300px;
+  }
+
+  .Continue {
+    position: absolute;
+    width: 424px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #197bbd;
+    margin-top: 30px;
+    left: 51%;
+    transform: translate(-50%);
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 43px;
+    transition: 0.5s;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

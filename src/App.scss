@@ -1,0 +1,788 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+$backgroundColor: #f0f0f0;
+$boxshadowColor: #cfcece;
+
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  background-color: $backgroundColor;
+  font-family: "Nunito";
+}
+
+.OblakoTop {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 200px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.OblakoBottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 200px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.recharts-responsive-container {
+  margin-left: 30px;
+}
+
+.Wrapper {
+  position: absolute;
+  width: 90%;
+  height: 95%;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px $boxshadowColor;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .SideWrapper {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 225px;
+    height: 98%;
+    border-right: 1px solid #d7d7d7;
+    user-select: none;
+
+    .Logo {
+      position: absolute;
+      top: 30px;
+      left: 47%;
+      transform: translate(-50%);
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .Links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 50%;
+      top: 100px;
+      transform: translate(-50%);
+      width: 165px;
+      text-align: center;
+
+      img {
+        transform: translate(-60px, 8px);
+      }
+
+      a {
+        text-decoration: none;
+        height: 45px;
+        border-radius: 5px;
+      }
+
+      p {
+        margin-left: 40px;
+        margin-top: -18px;
+        font-weight: 653;
+        line-height: 15px;
+      }
+    }
+
+    .GiveYourCashImg {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+}
+
+.Section {
+  position: absolute;
+  right: 0;
+  width: 80%;
+  height: 100%;
+}
+
+.OverviewWrapper {
+  h1 {
+    margin-top: 40px;
+    margin-left: 40px;
+    font-size: 40px;
+    font-weight: 650;
+    user-select: none;
+  }
+
+  .UnderTitle {
+    color: #aeaeae;
+    margin-left: 43px;
+    margin-top: -25px;
+    user-select: none;
+  }
+
+  .AccountInfo {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    height: 40px;
+    right: 0px;
+    margin-top: 60px;
+    user-select: none;
+
+    .Mail {
+      margin-left: 40px;
+      padding-right: 20px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+        transform: translateY(-4px);
+      }
+    }
+
+    .Notification {
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+        transform: translateY(-4px);
+      }
+    }
+
+    .UserImg {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      background-color: #ffc145;
+      border-radius: 50%;
+      top: -5px;
+      margin-left: 140px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .UserInfo {
+      position: absolute;
+      top: -20px;
+      margin-left: 45px;
+      cursor: default;
+
+      .AccountStatus {
+        color: #aeaeae;
+        white-space: nowrap;
+        font-size: 15px;
+        transform: translateY(-15px);
+      }
+    }
+  }
+
+  .Goals {
+    position: absolute;
+    width: 420px;
+    height: 250px;
+    top: 130px;
+    right: 0;
+    user-select: none;
+
+    .Title {
+      margin-left: 20px;
+      margin-top: 30px;
+      font-weight: 600;
+
+      img {
+        transform: translateY(6px);
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .GoalsWrapper {
+      width: 370px;
+      height: 230px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 30px;
+      gap: 20px;
+
+      .Arrow {
+        transform: translateY(-25px);
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .TransactionsHistory {
+    width: 640px;
+    height: 183px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 0px 16px $boxshadowColor;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 13px;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    h3 {
+      margin-left: 30px;
+    }
+
+    p {
+      color: #aeaeae;
+      margin-left: 30px;
+    }
+  }
+}
+
+.CardWrapper {
+  width: 625px;
+  height: 350px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px $boxshadowColor;
+  background-color: #fff;
+  margin-top: 30px;
+  margin-left: 10px;
+  user-select: none;
+
+  .CardArrowLeft {
+    position: absolute;
+    margin-left: 13px;
+    margin-top: -104px;
+    transform: rotate(180deg);
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .CardArrowRight {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -104px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  h3 {
+    margin-left: 30px;
+    transform: translateY(13px);
+  }
+
+  .Balance {
+    position: absolute;
+    top: 190px;
+    margin-left: 450px;
+    width: 190px;
+    height: 200px;
+    border-left: 1px solid #e8e8e8;
+    user-select: none;
+
+    .CurrentBalance {
+      transform: translateY(-23px);
+
+      h2 {
+        margin-left: 20px;
+        font-size: 30px;
+        white-space: nowrap;
+        color: #197bbd;
+
+        span {
+          font-size: 16px;
+        }
+      }
+
+      p {
+        color: #c2c2c2;
+        font-size: 13px;
+        transform: translateY(-29px);
+        margin-left: 58px;
+      }
+    }
+
+    .Income {
+      h3 {
+        color: #439a86;
+        margin-left: 60px;
+        transform: translateY(-35px);
+      }
+
+      p {
+        color: #c2c2c2;
+        font-size: 13px;
+        transform: translateY(-54px);
+        margin-left: 104px;
+      }
+    }
+
+    .Outcome {
+      h3 {
+        color: red;
+        margin-left: 71px;
+        transform: translateY(-45px);
+        font-size: 17px;
+      }
+
+      p {
+        color: #c2c2c2;
+        font-size: 13px;
+        transform: translateY(-63px);
+        margin-left: 86px;
+      }
+    }
+  }
+}
+
+.Card {
+  width: 350px;
+  height: 200px;
+  background: linear-gradient(#197bbd, #3391d0);
+  border-radius: 30px;
+  margin-left: 40px;
+  z-index: 10;
+  box-shadow: 0px 0px 10px #999898;
+
+  p {
+    position: absolute;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 25px;
+  }
+
+  .premiumAccount {
+    position: absolute;
+    color: #76b2d9;
+    font-size: 10px;
+    transform: translateY(26px);
+  }
+
+  .CardNumber {
+    position: absolute;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 80px;
+  }
+
+  .CardHolder {
+    position: absolute;
+    margin-top: 145px;
+
+    .Holder {
+      color: #fff;
+      font-size: 10px;
+      white-space: nowrap;
+      transform: translateY(-3px);
+    }
+
+    .Name {
+      white-space: nowrap;
+      transform: translateY(10px);
+      font-size: 14px;
+    }
+  }
+
+  .ExpireDate {
+    position: absolute;
+    margin-top: 145px;
+    margin-left: 160px;
+
+    .Expire {
+      color: #fff;
+      font-size: 10px;
+      white-space: nowrap;
+      transform: translateY(-3px);
+    }
+
+    .Date {
+      white-space: nowrap;
+      transform: translateY(10px);
+      font-size: 14px;
+    }
+  }
+
+  img {
+    margin-top: 17%;
+    margin-left: 150px;
+    z-index: -1;
+  }
+}
+
+.NewTransaction {
+  position: absolute;
+  width: 400px;
+  height: 183px;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px $boxshadowColor;
+  border-radius: 30px;
+  right: 30px;
+  bottom: 50px;
+  user-select: none;
+
+  p {
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 15px;
+    transform: translateY(-10px);
+  }
+
+  .AddNew {
+    user-select: none;
+    margin-top: 30px;
+    img {
+      transform: translate(50px, -30px);
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    span {
+      position: absolute;
+      font-size: 18px;
+    }
+  }
+
+  input {
+    width: 175px;
+    height: 36px;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid #197bbd;
+    padding-left: 10px;
+    font-size: 23px;
+    color: #c7c7c7;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: "Lato";
+    font-weight: 350;
+
+    &::placeholder {
+      color: #c7c7c7;
+    }
+  }
+
+  .dollar {
+    width: 12px;
+    transform: translateY(4px);
+    margin-left: -25px;
+    pointer-events: none;
+  }
+
+  .Send {
+    width: 150px;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #ffc145;
+    margin-top: -42px;
+    margin-left: 230px;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.DeactivateCard {
+  #toggle {
+    display: none;
+  }
+
+  .DeactivateSwitcher {
+    width: 45px;
+    height: 23px;
+    background-color: #ebebeb;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 550px;
+    margin-top: 30px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 23px;
+      height: 23px;
+      background-color: #cdcdcd;
+      border-radius: 50%;
+      z-index: 100;
+      transition: 0.5s;
+    }
+  }
+
+  .Deactivate {
+    color: #aeaeae;
+    margin-left: 490px;
+    margin-top: 7px;
+    font-size: 15px;
+  }
+
+  .Active {
+    color: #197bbd;
+    transition: 0.5s;
+  }
+
+  .active {
+    background-color: #489bd3c5;
+    &::before {
+      margin-left: 21px;
+      background-color: #197bbd;
+    }
+  }
+}
+.WeeklyPaymentLimit {
+  margin-top: -70px;
+
+  .CompleteBar {
+    width: 335px;
+    height: 13px;
+    margin-left: 50px;
+    margin-top: -60px;
+  }
+}
+
+.ProgressBarTitle {
+  color: #aeaeae;
+  font-size: 15px;
+  margin-left: 50px;
+  margin-top: 7px;
+}
+
+.ProgressBarOutcome {
+  margin-left: 260px;
+  font-size: 15px;
+  margin-top: -36px;
+  white-space: nowrap;
+}
+
+.Recivier {
+  display: flex;
+  transform: translateY(-16px);
+  gap: 90px;
+
+  .Type {
+    transform: translate(40px);
+  }
+
+  .Date {
+    transform: translate(15px);
+  }
+
+  .Amount {
+    transform: translate(35px);
+  }
+}
+
+.wrapper {
+  padding-bottom: 35px;
+}
+
+.TransactionCard {
+  margin-top: -23px;
+  margin-left: 30px;
+  user-select: none;
+  border-bottom: 1px solid #ececec;
+  width: 93%;
+  height: 35px;
+
+  .Resivier {
+    width: 25px;
+    height: 25px;
+    background-color: #efefef;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+  }
+
+  .Reciviers {
+    transform: translateY(-40px);
+    color: #111;
+    margin-left: 34px;
+  }
+
+  .Type {
+    transform: translate(190px, -79px);
+    color: #c7c7c7;
+  }
+
+  .Date {
+    transform: translate(320px, -117px);
+    color: #c7c7c7;
+  }
+
+  .Amount {
+    transform: translate(495px, -155px);
+    color: #111 !important;
+    z-index: 111;
+    font-weight: 600;
+  }
+}
+
+.OutcomeStatistics {
+  position: absolute;
+  width: 420px;
+  height: 200px;
+  top: 410px;
+  right: 0;
+  user-select: none;
+
+  h3 {
+    margin-left: 20px;
+    margin-top: 30px;
+    font-weight: 600;
+  }
+
+  .Progress {
+    width: 300px;
+    margin-left: 80px;
+  }
+
+  .ant-progress-text {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-top: -4px;
+  }
+
+  .Imgs {
+    position: absolute;
+    margin-top: -7px;
+    margin-left: 15px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    text-align: center;
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000 !important;
+    }
+  }
+
+  .StatisticsTitle {
+    color: #aeaeae;
+    font-size: 14px;
+    transform: translate(81px, -12px);
+  }
+}
+
+.GoalsCardWrapper {
+  width: 157px;
+  height: 180px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px $boxshadowColor;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.5s;
+  overflow: hidden;
+  display: flex;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: translateY(-5px);
+    opacity: 0.7;
+  }
+
+  .Price {
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+
+  .date {
+    margin-top: 40px;
+    margin-left: -58px;
+    color: #aeaeae;
+    font-size: 15px;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+    margin-left: -55px;
+    margin-top: 104px;
+  }
+
+  .Type {
+    margin-top: 140px;
+    margin-left: -40px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+}
+
+.GoogleLogin {
+  position: absolute;
+  width: 300px;
+  height: 40px;
+  background-color: transparent;
+  display: flex;
+  text-align: center;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  bottom: 10px;
+  left: 52%;
+  transform: translate(-50%);
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  p {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -6px);
+    font-weight: 600;
+  }
+
+  img {
+    margin-left: 34px;
+  }
+}

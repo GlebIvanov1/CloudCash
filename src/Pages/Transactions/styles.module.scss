@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+$boxshadowColor: #cfcece;
+
+.Chart {
+  position: absolute;
+  transform: translate(-20px, 30px);
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.TransactionsWrapper {
+  .TransactionHistory {
+    position: absolute;
+    bottom: 15px;
+    width: min-content;
+    height: 290px;
+    padding-right: 20px;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px $boxshadowColor;
+    margin-top: 35px;
+    user-select: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    h1 {
+      transform: translateY(-5px);
+      margin-left: 50px;
+    }
+
+    .TransactionCardWrapper {
+      margin-top: 15px;
+    }
+
+    .Recivier {
+      margin-left: 35px;
+      margin-top: -13px;
+
+      .Type {
+        margin-left: 32px;
+      }
+
+      .Date {
+        margin-left: 10px;
+      }
+
+      .Amount {
+        margin-left: 48px;
+      }
+
+      p {
+        color: #aeaeae;
+      }
+    }
+  }
+}

@@ -1,0 +1,175 @@
+$boxshadowColor: #cfcece;
+
+.GoalsWrapper {
+  user-select: none;
+
+  .UncompletedGoalsTitle {
+    margin-top: 40px;
+    margin-left: 6px;
+    font-size: 35px;
+    font-weight: 550;
+    user-select: none;
+  }
+
+  .UncompletedGoals {
+    width: 95%;
+    height: 230px;
+    margin-top: 20px;
+    right: 0;
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    overflow-x: auto;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .CompletedGoalsWrapper {
+    position: absolute;
+    width: 580px;
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px $boxshadowColor;
+    border-radius: 30px;
+    right: 30px;
+    margin-top: 23px;
+    padding-right: 45px;
+    overflow-x: hidden;
+
+    .Title {
+      margin-left: 40px;
+      user-select: none;
+    }
+
+    .CompletedGoalsCardWrapper {
+      display: flex;
+      gap: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 14px;
+      width: 580px;
+      height: 210px;
+      margin-top: -17px;
+      overflow-x: auto;
+    }
+  }
+
+  .AddMewGoalsWrapper {
+    position: absolute;
+    width: 390px;
+    height: 310px;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px $boxshadowColor;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 3px;
+
+    .Title {
+      margin-left: 30px;
+      user-select: none;
+    }
+
+    .AddNewGoalAmoutInput {
+      position: absolute;
+      width: 200px;
+      height: 36px;
+      border-radius: 10px;
+      outline: none;
+      border: 2px solid #197bbd;
+      padding-left: 10px;
+      font-size: 20px;
+      color: #a3a1a1;
+      font-family: "Lato";
+      font-weight: 350;
+      margin-top: 20px;
+      margin-left: 40px;
+
+      &::placeholder {
+        color: #a3a1a1;
+      }
+    }
+
+    .AddNewGoalDollarSign {
+      position: absolute;
+      pointer-events: none;
+      font-weight: 400;
+      font-size: 22px;
+      margin-left: 230px;
+      transform: translateY(4px);
+      color: #c7c7c7;
+      font-weight: 350;
+    }
+
+    .AddNewGoalDateInput {
+      width: 140px;
+      height: 40px;
+      border-radius: 10px;
+      outline: none;
+      border: 2px solid #197bbd;
+      padding-left: 10px;
+      font-size: 20px;
+      color: #a3a1a1;
+      margin-top: 80px;
+      margin-left: 40px;
+      font-family: "Lato";
+      font-weight: 350;
+
+      &::placeholder {
+        color: #a3a1a1;
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(0.4);
+      }
+    }
+
+    .AddNewGoalType {
+      width: 140px;
+      height: 38px;
+      border-radius: 10px;
+      outline: none;
+      border: 2px solid #197bbd;
+      padding-left: 10px;
+      font-size: 20px;
+      color: #a3a1a1;
+      margin-top: 80px;
+      margin-left: 20px;
+      font-family: "Lato";
+      font-weight: 350;
+
+      &::placeholder {
+        color: #a3a1a1;
+      }
+    }
+
+    .AddNewGoalTypeImg {
+      position: absolute;
+      pointer-events: none;
+      margin-top: 87px;
+      transform: translate(-35px);
+    }
+
+    .AddNewGoalButton {
+      position: absolute;
+      width: 200px;
+      height: 38px;
+      border: 2px solid #197bbd;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 38px;
+      cursor: pointer;
+      left: 50%;
+      transform: translate(-50%);
+      margin-top: 35px;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #5aa8dc;
+        border: 2px solid #5aa8dc;
+        color: #fff;
+      }
+    }
+  }
+}

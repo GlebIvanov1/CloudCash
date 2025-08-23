@@ -1,0 +1,160 @@
+.CardsWrapper {
+  overflow: hidden;
+  user-select: none;
+  width: 83%;
+
+  h1 {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-left: 54px;
+    user-select: none;
+    font-weight: 600;
+  }
+
+  .UnderTitle {
+    margin-left: 58px;
+    margin-top: -28px;
+    color: #aeaeae;
+  }
+
+  .CardWrapper {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    margin-left: 48px;
+
+    .Card {
+      transform: translateY(40px);
+    }
+
+    .Balance {
+      transform: translateY(-150px);
+    }
+
+    .DeactivateCard {
+      margin-top: 75px;
+    }
+
+    .CardArrowLeft {
+      transform: translateY(35px) rotate(180deg);
+    }
+
+    .CardArrowRight {
+      transform: translateY(35px);
+    }
+  }
+
+  .AddCardWrapper {
+    position: absolute;
+    width: 400px;
+    height: 370px;
+    background-color: transparent;
+    right: 17px;
+    top: 240px;
+    transform: translateY(-50%);
+    border-radius: 30px;
+
+    .AddCardSvg {
+      position: absolute;
+      top: 28px;
+      margin-left: 235px;
+      cursor: pointer;
+    }
+
+    h3 {
+      margin-left: 35px;
+      transform: translateY(-10px);
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .AddNewCard {
+      position: absolute;
+      margin-top: 220px;
+      width: 180px;
+      height: 40px;
+      border: 1px solid #111;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.5s;
+      left: 50%;
+      transform: translate(-50%);
+
+      &:hover {
+        transform: translate(-50%, -4px);
+        opacity: 0.7;
+      }
+
+      img {
+        position: relative;
+        margin-left: -5px;
+        margin-right: 4px;
+        pointer-events: none;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .Card {
+      position: absolute;
+      user-select: none;
+      transform: translate(-9px, -15px);
+
+      .CardNumber {
+        position: absolute;
+        z-index: 1000;
+        width: 210px;
+        height: 30px;
+        border-radius: 7px;
+        margin-top: 80px;
+        margin-left: 25px;
+        outline: none;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        padding-left: 15px;
+        font-size: 20px;
+
+        &::placeholder {
+          color: #fff;
+          transform: translate(8px);
+        }
+      }
+    }
+
+    .ExpirtDateInput {
+      width: 51px;
+      height: 22px;
+      border-radius: 3px;
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      margin-top: 23px;
+      margin-left: 24px;
+      outline: none;
+      padding-left: 0;
+      font-size: 18px;
+      padding-left: 3px;
+
+      &::placeholder {
+        color: #fff;
+        transform: translate(5px);
+      }
+    }
+  }
+
+  .OutcomeStatistics {
+    position: absolute;
+    right: 1px;
+    bottom: 690px;
+  }
+
+  .NewTransaction {
+    position: absolute;
+    left: 480px;
+    bottom: -35px;
+  }
+}
