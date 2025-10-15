@@ -1,7 +1,7 @@
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { decrementVerifyCooldown, setVerifyCooldown } from "../../Redux/slices/VerifySlice";
 import styles from "./styles.module.scss";
 
@@ -16,11 +16,23 @@ const VerifyPage: React.FC = () => {
   useEffect(() => {
     if (verifyColdown <= 0) {
       window.clearInterval(intervalRef.current);
-      dispatch(setVerifyCooldown(0));
+      dispatch(setVerifyCooldown(Number(localStorage.getItem("verifyCooldown"))));
       intervalRef.current = null;
     }
 
     user?.reload();
+  }, [verifyColdown]);
+
+  useEffect(() => {
+    try {
+      if (verifyColdown > 0 && intervalRef.current === null) {
+        intervalRef.current = window.setInterval(() => {
+          dispatch(decrementVerifyCooldown());
+        }, 1000);
+      }
+    } catch (e: any) {
+      alert(e.code);
+    }
   }, [verifyColdown]);
 
   const confirmEmail = () => {
@@ -51,8 +63,18 @@ const VerifyPage: React.FC = () => {
     }
   };
 
+  const Back = () => {
+    window.clearInterval(intervalRef.current);
+    dispatch(setVerifyCooldown(Number(localStorage.getItem("verifyCooldown"))));
+    intervalRef.current = null;
+    user?.delete();
+  };
+
   return (
     <>
+      <Link to={"/Register"} className={styles.Back} onClick={Back}>
+        Back
+      </Link>
       <div className={styles.VerifyPageWrapper}>
         <h1>Verify your email address</h1>
 

@@ -1,7 +1,9 @@
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, sendPasswordResetEmail, signOut } from "firebase/auth";
 import React, { ChangeEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { setLanguage } from "../../Redux/slices/ConfigurationSlice";
+import { setVerifyCooldown } from "../../Redux/slices/VerifySlice";
 import styles from "./styles.module.scss";
 
 const Settings: React.FC = () => {
@@ -11,6 +13,7 @@ const Settings: React.FC = () => {
   const [dateInputValue, setDateInputValue] = useState("");
   const language = useSelector((state: any) => state.configuration.language);
   const dispatch = useDispatch();
+  const redirect = useNavigate();
 
   const setLanguages = (e: any) => {
     localStorage.clear();
@@ -28,6 +31,17 @@ const Settings: React.FC = () => {
     if (confirmSignOut) {
       signOut(auth);
     }
+  };
+
+  const ChangePasswordFunction = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        redirect("/Settings/ChangePassword");
+        dispatch(setVerifyCooldown(60));
+      })
+      .catch((e) => {
+        alert(`Error ${e.code}`);
+      });
   };
 
   return (
@@ -59,7 +73,7 @@ const Settings: React.FC = () => {
               disabled={email ? true : false}
             />
 
-            {email && <img src="/Imgs/+.svg" alt="Delete" />}
+            {email && <img src="/OptimiziedSvg/+.svg" alt="Delete" />}
 
             <input
               className={styles.phoneInput}
@@ -87,13 +101,15 @@ const Settings: React.FC = () => {
               onChange={(e: ChangeEvent<HTMLInputElement>) => setDateInputValue(e.target.value)}
             />
 
-            <div className={styles.ConfirmButton}>{language === 'English' ? 'Confirm' : 'Подтвердить'}</div>
+            <div className={styles.ConfirmButton}>
+              {language === "English" ? "Confirm" : "Подтвердить"}
+            </div>
           </div>
 
           <div className={styles.ChangePassword}>
             <h3>{language === "English" ? "Change password" : "Поменять пароль"}</h3>
 
-            <div className={styles.ChangePasswordButton}>
+            <div onClick={ChangePasswordFunction} className={styles.ChangePasswordButton}>
               {language === "English" ? "Change password" : "Поменять пароль"}
             </div>
           </div>

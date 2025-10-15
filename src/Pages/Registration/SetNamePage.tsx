@@ -1,15 +1,14 @@
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useIsLogin from "../../Hooks/UseIsLogin";
 import { setName } from "../../Redux/slices/UserSlice";
-import { decrementVerifyCooldown, setVerifyCooldown } from "../../Redux/slices/VerifySlice";
+import { setVerifyCooldown } from "../../Redux/slices/VerifySlice";
 import styles from "./styles.module.scss";
 
 const SetNamePage: React.FC = () => {
-  const intervalRef = useRef<number | any>(null);
   const dispatch = useDispatch();
   const auth = getAuth();
   const redirect = useNavigate();
@@ -17,6 +16,7 @@ const SetNamePage: React.FC = () => {
   const [name, setNameValue] = useState("");
   const [Lastname, setLastName] = useState("");
   const db = getDatabase();
+  const user = auth.currentUser;
 
   useEffect(() => {
     if (isLogin) {
@@ -25,37 +25,44 @@ const SetNamePage: React.FC = () => {
   }, [isLogin]);
 
   const Continue = async () => {
-    const user: any = auth.currentUser;
+    if (name && Lastname) {
+      const user: any = auth.currentUser;
 
-    set(ref(db, "/users/" + auth.currentUser?.uid), {
-      name: name,
-      lastName: Lastname,
-    });
+      set(ref(db, "/users/" + auth.currentUser?.uid), {
+        name: name,
+        lastName: Lastname,
+      });
 
-    dispatch(
-      setName({
-        name,
-        Lastname,
-      }),
-    );
+      dispatch(
+        setName({
+          name,
+          Lastname,
+        }),
+      );
 
-    redirect("/Register/VerifyEmail");
-    await sendEmailVerification(user);
-    dispatch(setVerifyCooldown(60));
+      redirect("/Register/VerifyEmail");
+      dispatch(setVerifyCooldown(0));
+      await sendEmailVerification(user);
+      dispatch(setVerifyCooldown(60));
 
-    if (intervalRef.current !== null) return;
-
-    intervalRef.current = window.setInterval(() => {
-      dispatch(decrementVerifyCooldown());
-    }, 1000);
-
-    if (user?.emailVerified) {
-      alert("Email has been successfully confirmed!");
+      if (user?.emailVerified) {
+        alert("Email has been successfully confirmed!");
+      }
+    } else {
+      alert("You need to enter your name and last name.");
     }
+  };
+
+  const Back = () => {
+    user?.delete();
   };
 
   return (
     <>
+      <Link to={"/Register"} className={styles.Back} onClick={Back}>
+        Back
+      </Link>
+
       <div className={styles.SetNameWrapper}>
         <h1>Set your name</h1>
 

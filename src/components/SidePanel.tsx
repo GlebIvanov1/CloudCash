@@ -40,7 +40,7 @@ const SidePanel: React.FC = () => {
           <img
             onClick={() => setActiveFunction(0)}
             className="Logo"
-            src="/Imgs/SideWrapper/SideWrapperLogo.svg"
+            src="/OptimiziedSvg/SideWrapperLogo.svg"
             alt=""
           />
         </Link>
@@ -52,7 +52,7 @@ const SidePanel: React.FC = () => {
             }}
             onClick={() => setActiveFunction(0)}
             to={"/"}>
-            <img src={`/Imgs/SideWrapper/Overview(${active == 0 ? "active" : "unactive"}).svg`} />{" "}
+            <img src={`/OptimiziedSvg/Overview(${active == 0 ? "active" : "unactive"}).svg`} />{" "}
             <p
               style={{
                 color: active == 0 ? "#197BBD" : "#C7C7C7",
@@ -66,9 +66,7 @@ const SidePanel: React.FC = () => {
             }}
             onClick={() => setActiveFunction(1)}
             to={"/Transactions"}>
-            <img
-              src={`/Imgs/SideWrapper/Transactions(${active == 1 ? "active" : "unactive"}).svg`}
-            />{" "}
+            <img src={`/OptimiziedSvg/Transactions(${active == 1 ? "active" : "unactive"}).svg`} />{" "}
             <p
               style={{
                 color: active == 1 ? "#197BBD" : "#C7C7C7",
@@ -82,7 +80,7 @@ const SidePanel: React.FC = () => {
             }}
             onClick={() => setActiveFunction(2)}
             to={"/Cards"}>
-            <img src={`/Imgs/SideWrapper/Cards(${active == 2 ? "active" : "unactive"}).svg`} />{" "}
+            <img src={`/OptimiziedSvg/Cards(${active == 2 ? "active" : "unactive"}).svg`} />{" "}
             <p
               style={{
                 color: active == 2 ? "#197BBD" : "#C7C7C7",
@@ -96,7 +94,7 @@ const SidePanel: React.FC = () => {
             }}
             onClick={() => setActiveFunction(3)}
             to={"/Goals"}>
-            <img src={`/Imgs/SideWrapper/Goals(${active == 3 ? "active" : "unactive"}).svg`} />{" "}
+            <img src={`/OptimiziedSvg/Goals(${active == 3 ? "active" : "unactive"}).svg`} />{" "}
             <p
               style={{
                 color: active == 3 ? "#197BBD" : "#C7C7C7",
@@ -110,7 +108,7 @@ const SidePanel: React.FC = () => {
             }}
             onClick={() => setActiveFunction(4)}
             to={"/Settings"}>
-            <img src={`/Imgs/SideWrapper/Settings(${active == 4 ? "active" : "unactive"}).svg`} />{" "}
+            <img src={`/OptimiziedSvg/Settings(${active == 4 ? "active" : "unactive"}).svg`} />{" "}
             <p
               style={{
                 color: active == 4 ? "#197BBD" : "#C7C7C7",
@@ -120,7 +118,7 @@ const SidePanel: React.FC = () => {
           </Link>
         </div>
 
-        <img className="GiveYourCashImg" src="/Imgs/GiveYourCash.svg" alt="" />
+        <img className="GiveYourCashImg" src="/OptimiziedSvg/GiveYourCash.svg" alt="" />
       </div>
     </>
   );

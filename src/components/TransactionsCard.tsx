@@ -13,7 +13,7 @@ const TransactionCard: React.FC<TransactionCardType> = ({ Recivier, Type, Date, 
       <div className="wrapper">
         <div className="TransactionCard">
           <div className="Resivier">
-            <img src="/Imgs/TransactionUser.svg" alt="User" />
+            <img src="/OptimiziedSvg/TransactionUser.svg" alt="User" />
           </div>
 
           <p className="Reciviers">{Recivier}</p>

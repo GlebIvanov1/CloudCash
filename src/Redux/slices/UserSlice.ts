@@ -12,8 +12,8 @@ const initialState: initialStateType = {
   email: "",
   token: "",
   id: "",
-  name: '',
-  lastName: '',
+  name: "",
+  lastName: "",
 };
 
 const User = createSlice({
@@ -28,7 +28,7 @@ const User = createSlice({
     setName: (state, actions) => {
       state.name = actions.payload.name;
       state.lastName = actions.payload.lastName;
-    } 
+    },
   },
 });
 

@@ -9,6 +9,7 @@ $boxshadowColor: #cfcece;
     font-size: 35px;
     font-weight: 550;
     user-select: none;
+    animation: opactityLeft 0.7s;
   }
 
   .UncompletedGoals {
@@ -24,6 +25,7 @@ $boxshadowColor: #cfcece;
     padding-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
+    animation: opactityRight 0.7s;
   }
 
   .CompletedGoalsWrapper {
@@ -37,6 +39,7 @@ $boxshadowColor: #cfcece;
     margin-top: 23px;
     padding-right: 45px;
     overflow-x: hidden;
+    animation: opactityLeft 0.7s;
 
     .Title {
       margin-left: 40px;
@@ -65,6 +68,7 @@ $boxshadowColor: #cfcece;
     border-radius: 30px;
     margin-top: 20px;
     margin-left: 3px;
+    animation: opacityBottom 0.7s;
 
     .Title {
       margin-left: 30px;
@@ -171,5 +175,41 @@ $boxshadowColor: #cfcece;
         color: #fff;
       }
     }
+  }
+}
+
+@keyframes opactityRight {
+  from {
+    opacity: 0;
+    transform: translate(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opactityLeft {
+  from {
+    opacity: 0;
+    transform: translate(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opacityBottom {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

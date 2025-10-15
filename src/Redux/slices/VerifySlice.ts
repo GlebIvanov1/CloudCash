@@ -14,9 +14,11 @@ const Verify = createSlice({
   reducers: {
     setVerifyCooldown: (state, action) => {
       state.verifyCooldown = action.payload;
+      localStorage.setItem("verifyCooldown", action.payload);
     },
     decrementVerifyCooldown: (state) => {
       state.verifyCooldown = state.verifyCooldown - 1;
+      localStorage.setItem("verifyCooldown", `${state.verifyCooldown}`);
     },
   },
 });

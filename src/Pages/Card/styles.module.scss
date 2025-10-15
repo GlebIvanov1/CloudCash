@@ -19,8 +19,7 @@
 
   .CardWrapper {
     position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
+    top: 14%;
     margin-left: 48px;
 
     .Card {
@@ -28,11 +27,11 @@
     }
 
     .Balance {
-      transform: translateY(-150px);
+      transform: translateY(30px);
     }
 
     .DeactivateCard {
-      margin-top: 75px;
+      margin-top: 60px;
     }
 
     .CardArrowLeft {
@@ -50,9 +49,9 @@
     height: 370px;
     background-color: transparent;
     right: 17px;
-    top: 240px;
-    transform: translateY(-50%);
+    top: 60px;
     border-radius: 30px;
+    animation: opactityRight 0.7s;
 
     .AddCardSvg {
       position: absolute;
@@ -156,5 +155,17 @@
     position: absolute;
     left: 480px;
     bottom: -35px;
+  }
+}
+
+@keyframes opactityRight {
+  from {
+    opacity: 0;
+    transform: translate(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
   }
 }

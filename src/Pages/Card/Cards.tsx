@@ -60,7 +60,7 @@ const Cards: React.FC = () => {
             <div className="CardHolder">
               <p className="Holder">Card holder</p>
               <p className="Name">
-                {name} {lastName}
+                {name || "loading..."} {lastName}
               </p>
             </div>
 
@@ -69,7 +69,7 @@ const Cards: React.FC = () => {
               <p className="Date">06/26</p>
             </div>
 
-            <img src="/Imgs/Oblako.svg" alt="" />
+            <img src="/OptimiziedSvg/Oblako.svg" alt="" />
           </div>
 
           <div className={`Balance ${styles.Balance}`}>
@@ -94,12 +94,12 @@ const Cards: React.FC = () => {
           </div>
 
           <img
-            src="/Imgs/Arrow.svg"
+            src="/OptimiziedSvg/Arrow.svg"
             alt="Arrow"
             className={`CardArrowLeft ${styles.CardArrowLeft}`}
           />
           <img
-            src="/Imgs/Arrow.svg"
+            src="/OptimiziedSvg/Arrow.svg"
             alt="Arrow"
             className={`CardArrowRight ${styles.CardArrowRight}`}
           />
@@ -143,7 +143,7 @@ const Cards: React.FC = () => {
         <div className={`${styles.AddCardWrapper}`}>
           <h3>{language === "English" ? "Add new card" : "Добавить карту"}</h3>
           <img
-            src="/Imgs/AddGoals.svg"
+            src="/OptimiziedSvg/AddGoals.svg"
             style={{ marginLeft: language === "Русский" ? "270px" : "" }}
             className={styles.AddCardSvg}
             alt=""
@@ -162,7 +162,7 @@ const Cards: React.FC = () => {
             <div className="CardHolder">
               <p className="Holder">Card holder</p>
               <p className="Name">
-                {name} {lastName}
+                {name || "loading..."} {lastName}
               </p>
             </div>
 
@@ -176,7 +176,7 @@ const Cards: React.FC = () => {
               />
             </div>
 
-            <img src="/Imgs/Oblako.svg" alt="" />
+            <img src="/OptimiziedSvg/Oblako.svg" alt="" />
           </div>
 
           <div

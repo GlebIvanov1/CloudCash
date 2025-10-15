@@ -85,7 +85,7 @@ const Goals: React.FC = () => {
           <img
             width={28}
             height={28}
-            src="/Imgs/HolidayIImgGray.svg"
+            src="/OptimiziedSvg/HolidayIImgGray.svg"
             className={styles.AddNewGoalTypeImg}
             alt="Goal"
           />
@@ -96,7 +96,7 @@ const Goals: React.FC = () => {
         </div>
       </div>
     </>
-  );
+  );  
 };
 
 export default Goals;

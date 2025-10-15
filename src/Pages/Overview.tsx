@@ -37,68 +37,88 @@ const Home: React.FC = () => {
         </p>
 
         <div className="AccountInfo">
-          <img className="Mail" src="/Imgs/mail.svg" alt="mail" />
-          <img className="Notification" src="/Imgs/Notification(active).svg" alt="notification" />
+          <img className="Mail" src="/OptimiziedSvg/mail.svg" alt="mail" />
+          <img
+            className="Notification"
+            src="/OptimiziedSvg/Notification(active).svg"
+            alt="notification"
+          />
 
           <div className="UserImg">
-            <img src="/Imgs/User.svg" alt="User" />
+            <img src="/OptimiziedSvg/User.svg" alt="User" />
 
             <div className="UserInfo">
-              <p className="Name">{name}</p>
+              <p className="Name">{name || "loading..."}</p>
               <p className="AccountStatus">User-account</p>
             </div>
           </div>
         </div>
 
-        <div className="CardWrapper">
-          <h3>{language === "English" ? "Cards" : "Карты"}</h3>
+        <div className="CardWrapper" style={{ border: deactivateCard ? "1px solid red" : "" }}>
+          <div
+            className="secondCardWrapper"
+            style={{ transform: deactivateCard && "translateY(-20px)" }}>
+            <h3 className="title">{language === "English" ? "Cards" : "Карты"}</h3>
 
-          <div className="Card">
-            <p>cloudcash</p>
-            <p className="premiumAccount">PREMIUM ACCOUNT</p>
+            <div className="Card">
+              <p className="cardTitle">cloudcash</p>
+              <p className="premiumAccount">PREMIUM ACCOUNT</p>
 
-            <h3 className="CardNumber">5789 **** **** 2847</h3>
+              <h3 className="CardNumber">5789 **** **** 2847</h3>
 
-            <div className="CardHolder">
-              <p className="Holder">Card holder</p>
-              <p className="Name">
-                {name} {lastName}
-              </p>
+              <div className="CardHolder">
+                <p className="Holder">Card holder</p>
+                <p className="Name">
+                  {name || "loading..."} {lastName}
+                </p>
+              </div>
+
+              <div className="ExpireDate">  
+                <p className="Expire">Expire date</p>
+                <p className="Date">06/26</p>
+              </div>
+
+              <img src="/OptimiziedSvg/Oblako.svg" alt="" />
             </div>
 
-            <div className="ExpireDate">
-              <p className="Expire">Expire date</p>
-              <p className="Date">06/26</p>
-            </div>
+            <div className="Balance">
+              <div className="CurrentBalance">
+                <h2>
+                  <span>$</span> 2850.75
+                </h2>
+                <p>{language === "English" ? "Current balance" : "Текущий баланс"}</p>
+              </div>
 
-            <img src="/Imgs/Oblako.svg" alt="" />
+              <div className="Income">
+                <h3>$ 1500.50</h3>
+                <p>{language === "English" ? "Income" : "Доход"}</p>
+              </div>
+
+              <div className="Outcome">
+                <h3>$ {outcome}</h3>
+                <p style={{ marginLeft: language !== "English" ? "100px" : "" }}>
+                  {language === "English" ? "Outcome" : "Траты"}
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="Balance">
-            <div className="CurrentBalance">
-              <h2>
-                <span>$</span> 2850.75
-              </h2>
-              <p>{language === "English" ? "Current balance" : "Текущий баланс"}</p>
-            </div>
+          <img
+            style={{ transform: deactivateCard && "translateY(-20px) rotate(180deg)" }}
+            src="/OptimiziedSvg/Arrow.svg"
+            alt="Arrow"
+            className="CardArrowLeft"
+          />
+          <img
+            style={{ transform: deactivateCard && "translateY(-20px)" }}
+            src="/OptimiziedSvg/Arrow.svg"
+            alt="Arrow"
+            className="CardArrowRight"
+          />
 
-            <div className="Income">
-              <h3>$ 1500.50</h3>
-              <p>{language === "English" ? "Income" : "Доход"}</p>
-            </div>
-
-            <div className="Outcome">
-              <h3>$ {outcome}</h3>
-              <p style={{ marginLeft: language !== "English" ? "100px" : "" }}>
-                {language === "English" ? "Outcome" : "Траты"}
-              </p>
-            </div>
-          </div>
-
-          <img src="/Imgs/Arrow.svg" alt="Arrow" className="CardArrowLeft" />
-          <img src="/Imgs/Arrow.svg" alt="Arrow" className="CardArrowRight" />
-
-          <div className="DeactivateCard">
+          <div
+            className="DeactivateCard"
+            style={{ transform: deactivateCard && "translateY(-18px)" }}>
             <input type="checkbox" id="toggle" onChange={deactivateCardFunction} />
             <label htmlFor="toggle">
               <div className={`DeactivateSwitcher ${deactivateCard && "active"}`}></div>
@@ -120,7 +140,9 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="WeeklyPaymentLimit">
+          <div
+            className="WeeklyPaymentLimit"
+            style={{ transform: deactivateCard && "translateY(-18px)" }}>
             <div className="WeeklyPaymentLimitProgressBar">
               <Progress className="CompleteBar" percent={(outcome / 4000) * 100} showInfo={false} />
             </div>
@@ -136,16 +158,17 @@ const Home: React.FC = () => {
         <div className="Goals">
           <h3 className="Title">
             {language === "English" ? "Goals" : "Цели"}{" "}
-            <img src="/Imgs/AddGoals.svg" alt="AddGoals" />
+            <img src="/OptimiziedSvg/AddGoals.svg" alt="AddGoals" />
           </h3>
 
           <div className="GoalsWrapper">
             <GoalsCards price={550} date="09/20/25" type="Holidays" />
             <GoalsCards price={200} date="12/20/25" type="Renovation" />
 
-            <img className="Arrow" src="/Imgs/Arrow.svg" alt="next" />
+            <img className="Arrow" src="/OptimiziedSvg/Arrow.svg" alt="next" />
           </div>
         </div>
+
 
         <OutcomeStatistics />
 

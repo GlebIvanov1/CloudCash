@@ -12,9 +12,9 @@ const OutcomeStatistics: React.FC = () => {
 
         <div className="Statistics">
           {/* TODO: в будущем когда здесь булдет рендериться через json параметр type будет тоже переведен. */}
-          <OutcomeStatisticsCard title="Shopping" img="/Imgs/Cart.svg" percent={52} />
-          <OutcomeStatisticsCard title="Electronics" img="/Imgs/Truck.svg" percent={21} />
-          <OutcomeStatisticsCard title="Travels" img="/Imgs/Plane.svg" percent={74} />
+          <OutcomeStatisticsCard title="Shopping" img="/OptimiziedSvg/Cart.svg" percent={52} />
+          <OutcomeStatisticsCard title="Electronics" img="/OptimiziedSvg/Truck.svg" percent={21} />
+          <OutcomeStatisticsCard title="Travels" img="/OptimiziedSvg/Plane.svg" percent={74} />
         </div>
       </div>
     </>

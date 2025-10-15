@@ -25,14 +25,17 @@ $boxshadowColor: #cfcece;
     user-select: none;
     overflow-y: scroll;
     overflow-x: hidden;
+    animation: opactityLeft 0.7s;
 
     &::-webkit-scrollbar {
       display: none;
     }
 
     h1 {
-      transform: translateY(-5px);
+      margin-top: 15px;
+      padding-bottom: 5px;
       margin-left: 50px;
+      animation: opactityLeft 0.7s;
     }
 
     .TransactionCardWrapper {
@@ -45,19 +48,59 @@ $boxshadowColor: #cfcece;
 
       .Type {
         margin-left: 32px;
+        animation: up 1.1s;
       }
 
       .Date {
         margin-left: 10px;
+        animation: down 1.1s;   
       }
 
       .Amount {
         margin-left: 48px;
+        animation: up 1.1s;
       }
 
       p {
         color: #aeaeae;
+        animation: down 1.1s;
       }
     }
+  }
+}
+
+@keyframes opactityRight {
+  from {
+    opacity: 0;
+    transform: translate(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opactityLeft {
+  from {
+    opacity: 0;
+    transform: translate(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes up {
+  from {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes down {
+  from {
+    transform: translateY(10px);
   }
 }

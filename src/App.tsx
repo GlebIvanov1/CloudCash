@@ -1,6 +1,6 @@
 import { getAuth, onAuthStateChanged, sendEmailVerification } from "firebase/auth";
 import { child, get, getDatabase, ref } from "firebase/database";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router";
 import "./App.scss";
@@ -14,11 +14,13 @@ import LoginPage from "./Pages/Registration/LoginPage";
 import RegisterPage from "./Pages/Registration/RegisterPage";
 import SetNamePage from "./Pages/Registration/SetNamePage.js";
 import VerifyPage from "./Pages/Registration/VerifyPage.js";
+import ChangePassword from "./Pages/SettingsPage/ChangePassword.js";
 import Settings from "./Pages/SettingsPage/Settings";
+import TermsAndPolicy from "./Pages/TermsAndPolicy.js";
 import Transactions from "./Pages/Transactions/Transactions";
 import { setLanguage } from "./Redux/slices/ConfigurationSlice.js";
 import { setName, setUser } from "./Redux/slices/UserSlice.js";
-import { decrementVerifyCooldown, setVerifyCooldown } from "./Redux/slices/VerifySlice.js";
+import { setVerifyCooldown } from "./Redux/slices/VerifySlice.js";
 
 const App: React.FC = () => {
   const auth = getAuth();
@@ -26,17 +28,18 @@ const App: React.FC = () => {
   const redirect = useNavigate();
   const href = location.href;
   const host = useSelector((state: any) => state.configuration.host);
-  const intervalRef = useRef<number | any>(null);
   const dbRef = ref(getDatabase());
 
   const LoginPageHrefs = [
     `${host}/Register/VerifyEmail`,
     `${host}/Register/SetYourName`,
     `${host}/Login/ForgotPassword`,
+    `${host}/TermsPolicy`,
   ];
 
   useEffect(() => {
     dispatch(setLanguage(localStorage.getItem("language")));
+    dispatch(setVerifyCooldown(Number(localStorage.getItem("verifyCooldown"))));
   }, []);
 
   onAuthStateChanged(auth, (user: any) => {
@@ -71,14 +74,17 @@ const App: React.FC = () => {
           }),
         );
 
-        if (!user && ![`${host}/Register`, `${host}/Login`].includes(href)) {
+        if (
+          !user &&
+          ![`${host}/Register`, `${host}/Login`, `${host}/TermsAndPolicy`].includes(href)
+        ) {
           redirect("/Register");
         }
 
         get(child(dbRef, "/users/" + user.uid)).then((res) => {
           let value = res.val();
 
-          if (res.exists()) {
+          if (res.exists() && href !== `${host}/Register` && href !== `${host}/Login`) {
             if (user.emailVerified) {
               dispatch(
                 setName({
@@ -93,12 +99,6 @@ const App: React.FC = () => {
                 sendEmailVerification(user);
 
                 dispatch(setVerifyCooldown(60));
-
-                if (intervalRef.current !== null) return;
-
-                intervalRef.current = window.setInterval(() => {
-                  dispatch(decrementVerifyCooldown());
-                }, 1000);
               } catch (e: any) {
                 alert(e.code);
               }
@@ -106,7 +106,7 @@ const App: React.FC = () => {
           } else {
             if (user.emailVerified) {
               redirect("/");
-            } else {
+            } else if (href !== `${host}/Register` && href !== `${host}/Login`) {
               redirect("/Register/SetYourName");
             }
           }
@@ -117,7 +117,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <img className="OblakoTop" src="./Imgs/Oblako.png" alt="" />
+      <img className="OblakoTop" src="./Imgs/Oblako.png" alt="" loading="lazy" />
 
       <div className="Wrapper">
         <Routes>
@@ -172,6 +172,8 @@ const App: React.FC = () => {
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Login/ForgotPassword" element={<ForgotPasswordPage />} />
           <Route path="/Register" element={<RegisterPage />} />
+          <Route path="/Settings/ChangePassword" element={<ChangePassword />} />
+          <Route path="/TermsPolicy" element={<TermsAndPolicy />} />
         </Routes>
       </div>
     </>

@@ -124,6 +124,7 @@ body {
     font-size: 40px;
     font-weight: 650;
     user-select: none;
+    animation: up 0.7s;
   }
 
   .UnderTitle {
@@ -131,6 +132,7 @@ body {
     margin-left: 43px;
     margin-top: -25px;
     user-select: none;
+    animation: down 0.7s;
   }
 
   .AccountInfo {
@@ -147,6 +149,7 @@ body {
       padding-right: 20px;
       transition: 0.5s;
       cursor: pointer;
+      animation: up 0.7s;
 
       &:hover {
         opacity: 0.7;
@@ -157,6 +160,7 @@ body {
     .Notification {
       cursor: pointer;
       transition: 0.5s;
+      animation: down 0.7s;
 
       &:hover {
         opacity: 0.7;
@@ -174,6 +178,7 @@ body {
       margin-left: 140px;
       cursor: pointer;
       transition: 0.5s;
+      animation: up 0.7s;
 
       &:hover {
         opacity: 0.7;
@@ -186,11 +191,16 @@ body {
       margin-left: 45px;
       cursor: default;
 
+      .Name {
+        animation: right 0.7s;
+      }
+
       .AccountStatus {
         color: #aeaeae;
         white-space: nowrap;
         font-size: 15px;
         transform: translateY(-15px);
+        animation: Userleft 0.7s;
       }
     }
   }
@@ -202,16 +212,19 @@ body {
     top: 130px;
     right: 0;
     user-select: none;
+    animation: opactityRight 0.7s;
 
     .Title {
       margin-left: 20px;
       margin-top: 30px;
       font-weight: 600;
+      animation: down 0.7s;
 
       img {
         transform: translateY(6px);
         cursor: pointer;
         transition: 0.5s;
+        animation: up 0.7s;
 
         &:hover {
           opacity: 0.7;
@@ -249,6 +262,7 @@ body {
     overflow-x: hidden;
     margin-top: 13px;
     user-select: none;
+    animation: opactityRight 0.7s;
 
     &::-webkit-scrollbar {
       display: none;
@@ -256,6 +270,7 @@ body {
 
     h3 {
       margin-left: 30px;
+      animation: up 0.7s;
     }
 
     p {
@@ -274,11 +289,12 @@ body {
   margin-top: 30px;
   margin-left: 10px;
   user-select: none;
+  animation: opactityLeft 1s;
 
   .CardArrowLeft {
     position: absolute;
     margin-left: 13px;
-    margin-top: -104px;
+    margin-top: -120px;
     transform: rotate(180deg);
     cursor: pointer;
     transition: 0.5s;
@@ -291,7 +307,7 @@ body {
   .CardArrowRight {
     position: absolute;
     margin-left: 400px;
-    margin-top: -104px;
+    margin-top: -120px;
     cursor: pointer;
     transition: 0.5s;
 
@@ -306,8 +322,7 @@ body {
   }
 
   .Balance {
-    position: absolute;
-    top: 190px;
+    margin-top: -210px;
     margin-left: 450px;
     width: 190px;
     height: 200px;
@@ -378,6 +393,10 @@ body {
   z-index: 10;
   box-shadow: 0px 0px 10px #999898;
 
+  .cardTitle {
+    animation: down 0.7s;
+  }
+
   p {
     position: absolute;
     color: #fff;
@@ -390,6 +409,7 @@ body {
     color: #76b2d9;
     font-size: 10px;
     transform: translateY(26px);
+    animation: up 0.7s;
   }
 
   .CardNumber {
@@ -397,11 +417,13 @@ body {
     color: #fff;
     font-weight: 400;
     margin-top: 80px;
+    animation: left 0.7s;
   }
 
   .CardHolder {
     position: absolute;
     margin-top: 145px;
+    animation: down 0.7s;
 
     .Holder {
       color: #fff;
@@ -421,6 +443,7 @@ body {
     position: absolute;
     margin-top: 145px;
     margin-left: 160px;
+    animation: up 0.7s;
 
     .Expire {
       color: #fff;
@@ -453,19 +476,23 @@ body {
   right: 30px;
   bottom: 50px;
   user-select: none;
+  animation: opactityRight 1s;
 
   p {
     font-weight: 700;
     font-size: 20px;
     margin-left: 15px;
-    transform: translateY(-10px);
+    margin-top: 10px;
+    animation: opactityLeft 0.7s;
   }
 
   .AddNew {
     user-select: none;
     margin-top: 30px;
+    animation: opacity 0.7s;
+
     img {
-      transform: translate(50px, -30px);
+      transform: translate(50px, -20px);
       cursor: pointer;
       transition: 0.5s;
 
@@ -477,6 +504,7 @@ body {
     span {
       position: absolute;
       font-size: 18px;
+      margin-top: 5px;
     }
   }
 
@@ -573,6 +601,7 @@ body {
 }
 .WeeklyPaymentLimit {
   margin-top: -70px;
+  width: 360px;
 
   .CompleteBar {
     width: 335px;
@@ -666,11 +695,13 @@ body {
   top: 410px;
   right: 0;
   user-select: none;
+  animation: opactityLeft 0.7s;
 
   h3 {
     margin-left: 20px;
     margin-top: 30px;
     font-weight: 600;
+    animation: up 0.7s;
   }
 
   .Progress {
@@ -784,5 +815,83 @@ body {
 
   img {
     margin-left: 34px;
+  }
+}
+
+.TermsBack {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  color: #111;
+  text-decoration: none;
+}
+
+.Terms {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes up {
+  from {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes down {
+  from {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes Userleft {
+  from {
+    transform: translate(-20px, -15px);
+  }
+}
+
+@keyframes left {
+  from {
+    transform: translate(-20px);
+  }
+}
+
+@keyframes right {
+  from {
+    transform: translate(20px);
+  }
+}
+
+@keyframes opactityRight {
+  from {
+    opacity: 0;
+    transform: translate(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opactityLeft {
+  from {
+    opacity: 0;
+    transform: translate(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

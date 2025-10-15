@@ -12,7 +12,7 @@ const GoalsCards: React.FC<GoalsCardsType> = ({ price, date, type }) => {
       <div className="GoalsCardWrapper">
         <h3 className="Price">${price}</h3>
         <p className="date">{date}</p>
-        <img src="/Imgs/HolidayIImg.svg" alt="type" />
+        <img src="/OptimiziedSvg/HolidayIImg.svg" alt="type" />
         <h2 className="Type">{type}</h2>
       </div>
     </>

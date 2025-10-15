@@ -10,6 +10,7 @@ $boxshadowColor: #cfcece;
     margin-left: 15px;
     user-select: none;
     font-weight: 630;
+    animation: opactityLeft 0.7s;
   }
 
   .SignOut {
@@ -26,6 +27,7 @@ $boxshadowColor: #cfcece;
     color: #fff;
     transition: 0.5s;
     cursor: pointer;
+    animation: opacityBottom 0.7s;
 
     &:hover {
       background-color: rgb(255, 43, 43);
@@ -55,6 +57,7 @@ $boxshadowColor: #cfcece;
       position: absolute;
       right: 430px;
       top: -33px;
+      animation: opactityLeft 1.1s;
     }
 
     .YourInfo {
@@ -66,6 +69,7 @@ $boxshadowColor: #cfcece;
       border-radius: 15px;
       right: 120px;
       top: -1%;
+      animation: opactityLeft 0.7s;
 
       img {
         position: absolute;
@@ -114,14 +118,16 @@ $boxshadowColor: #cfcece;
     .BirthdayTitle {
       position: absolute;
       right: 400px;
-      bottom: 370px;
+      bottom: 350px;
+      animation: opactityRight 1.1s;
     }
 
     .Birth {
       position: absolute;
       right: 80px;
       user-select: none;
-      bottom: 280px;
+      bottom: 270px;
+      animation: opactityRight 0.7s;
 
       .ConfirmButton {
         position: absolute;
@@ -151,6 +157,7 @@ $boxshadowColor: #cfcece;
       margin-top: 00px;
       margin-left: 16px;
       border-radius: 15px;
+      animation: opactityRight 0.7s;
 
       h3 {
         transform: translate(30px, 30px);
@@ -175,6 +182,7 @@ $boxshadowColor: #cfcece;
       box-shadow: 0px 0px 30px $boxshadowColor;
       margin-top: 15px;
       margin-left: 30px;
+      animation: opactityLeft 0.7s;
 
       h3 {
         margin-top: 20px;
@@ -194,11 +202,119 @@ $boxshadowColor: #cfcece;
         margin-top: 90px;
         cursor: pointer;
         transition: 0.5s;
+        text-decoration: none;
 
         &:hover {
           opacity: 0.7;
         }
       }
     }
+  }
+}
+
+.ChangePasswordBack {
+  position: absolute;
+  top: 20px;
+  color: #111;
+  text-decoration: none;
+  margin-left: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.ChangePasswordWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px $boxshadowColor;
+
+  h2 {
+    margin-left: 30px;
+    font-size: 27px;
+  }
+
+  .DoneButton {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 45px;
+    border-radius: 11px;
+    background-color: #489bd3;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+      transform: translate(-50%, -57%);
+    }
+  }
+
+  .SendEmailVerificationAgain {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translate(-50%);
+    color: #551a8b;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .SendEmailVerificationAgain {
+    white-space: nowrap;
+  }
+}
+
+@keyframes opactityRight {
+  from {
+    opacity: 0;
+    transform: translate(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opactityLeft {
+  from {
+    opacity: 0;
+    transform: translate(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes opacityBottom {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }

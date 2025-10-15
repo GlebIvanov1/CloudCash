@@ -347,3 +347,84 @@ input {
     }
   }
 }
+
+.activeLanguage {
+  font-weight: 600;
+  transform: translateY(-2px);
+}
+
+.LanguageWrapper {
+  display: flex;
+  position: absolute;
+  top: 70px;
+  right: 200px;
+
+  .EngSeparator {
+    transform: translateY(17px);
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .Eng,
+  .Ru {
+    cursor: pointer;
+    transition: 0.5s;
+  }
+}
+
+.Back {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  color: #111;
+  text-decoration: none;
+}
+
+.ForgotPasswordWrapper {
+  position: absolute;
+  width: 550px;
+  height: 450px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px $boxshadowColor;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    margin-left: 30px;
+  }
+
+  h3 {
+    margin-left: 32px;
+    transform: translateY(-15px);
+  }
+
+  input {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ConfrimButton {
+    position: absolute;
+    width: 300px;
+    height: 45px;
+    background-color: #197bbd;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    user-select: none;
+    transition: 0.5s;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

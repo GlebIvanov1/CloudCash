@@ -13,11 +13,11 @@ const NewTransaction: React.FC = () => {
   return (
     <>
       <div className={"NewTransaction"}>
-        <p>{language === 'English' ? 'New transaction' : 'Новая транзакция'}</p>
+        <p>{language === "English" ? "New transaction" : "Новая транзакция"}</p>
 
         <div className={"AddNew"}>
-          <img src="/Imgs/AddGoals.svg" alt="AddNew" />
-          <span>{language === 'English' ? 'Add New' : 'Добавить'}</span>
+          <img src="/OptimiziedSvg/AddGoals.svg" alt="AddNew" />
+          <span>{language === "English" ? "Add New" : "Добавить"}</span>
         </div>
 
         <input
@@ -28,9 +28,9 @@ const NewTransaction: React.FC = () => {
           placeholder="0"
           maxLength={5}
         />
-        <img className={"dollar"} src="/Imgs/$.svg" alt="" />
+        <img className={"dollar"} src="/OptimiziedSvg/$.svg" alt="" />
 
-        <div className="Send">{language === 'English' ? 'Send the transfer' : 'Отправить'}</div>
+        <div className="Send">{language === "English" ? "Send the transfer" : "Отправить"}</div>
       </div>
     </>
   );
