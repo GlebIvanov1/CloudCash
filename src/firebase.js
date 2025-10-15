@@ -12,5 +12,7 @@ const firebaseConfig = {
   databaseUrl: import.meta.env.VITE_FIREBASE_DATABASE_URL,
 };
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig, {
+  databaseURL: "https://cloudcash-7661d-default-rtdb.firebaseio.com/",
+});
 const database = getDatabase(app);
