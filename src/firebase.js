@@ -12,6 +12,8 @@ const firebaseConfig = {
   databaseUrl: import.meta.env.VITE_FIREBASE_DATABASE_URL,
 };
 
+console.log(import.meta.env.VITE_FIREBASE_DATABASE_URL);
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
