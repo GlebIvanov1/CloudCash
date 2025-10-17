@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged, sendEmailVerification } from "firebase/auth";
 import { child, get, getDatabase, ref } from "firebase/database";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router";
 import "./App.scss";
 import SidePanel from "./components/SidePanel";
@@ -27,14 +27,13 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   const redirect = useNavigate();
   const href = location.href;
-  const host = useSelector((state: any) => state.configuration.host);
   const dbRef = ref(getDatabase());
 
   const LoginPageHrefs = [
-    `${host}/Register/VerifyEmail`,
-    `${host}/Register/SetYourName`,
-    `${host}/Login/ForgotPassword`,
-    `${host}/TermsPolicy`,
+    `/Register/VerifyEmail`,
+    `/Register/SetYourName`,
+    `/Login/ForgotPassword`,
+    `/TermsPolicy`,
   ];
 
   useEffect(() => {
@@ -74,17 +73,14 @@ const App: React.FC = () => {
           }),
         );
 
-        if (
-          !user &&
-          ![`${host}/Register`, `${host}/Login`, `${host}/TermsAndPolicy`].includes(href)
-        ) {
+        if (!user && ![`/Register`, `/Login`, `/TermsAndPolicy`].includes(location.pathname)) {
           redirect("/Register");
         }
 
         get(child(dbRef, "/users/" + user.uid)).then((res) => {
           let value = res.val();
 
-          if (res.exists() && href !== `${host}/Register` && href !== `${host}/Login`) {
+          if (res.exists() && location.pathname !== `/Register` && href !== `/Login`) {
             if (user.emailVerified) {
               dispatch(
                 setName({
@@ -106,7 +102,7 @@ const App: React.FC = () => {
           } else {
             if (user.emailVerified) {
               redirect("/");
-            } else if (href !== `${host}/Register` && href !== `${host}/Login`) {
+            } else if (location.pathname !== `/Register` && location.pathname !== `/Login`) {
               redirect("/Register/SetYourName");
             }
           }
