@@ -23,12 +23,12 @@ import { setName, setUser } from "./Redux/slices/UserSlice.js";
 import { setVerifyCooldown } from "./Redux/slices/VerifySlice.js";
 
 const App: React.FC = () => {
-  const auth = getAuth();
+  const auth = getAuth(); 
   const dispatch = useDispatch();
   const redirect = useNavigate();
   const href = location.href;
   const dbRef = ref(getDatabase());
-
+  
   const LoginPageHrefs = [
     `/Register/VerifyEmail`,
     `/Register/SetYourName`,
@@ -87,7 +87,7 @@ const App: React.FC = () => {
                   name: value.name,
                   lastName: value.lastName,
                 }),
-              );
+              );    
             } else {
               try {
                 redirect("/Register/VerifyEmail");
@@ -157,7 +157,7 @@ const App: React.FC = () => {
             path="/Settings"
             element={
               <>
-                <SidePanel />
+                <SidePanel />                                             
                 <Settings />
               </>
             }

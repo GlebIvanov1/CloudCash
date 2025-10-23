@@ -81,7 +81,7 @@ const LoginPage: React.FC = () => {
             type="email"
             placeholder={language === "English" ? "Enter your email" : "Введите вашу почту"}
           />
-        </div>
+        </div>  
 
         <div className={styles.PasswordInputWrapper}>
           <h2>{language === "English" ? "Password" : "Пароль"}</h2>
